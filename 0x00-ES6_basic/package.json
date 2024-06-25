@@ -4,7 +4,7 @@
     "check-lint": "./node_modules/.bin/eslint [0-9]*.js",
     "test": "jest",
     "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest",
-    "dev": "node 2-main.js"  // Add this line
+    "dev": "node 2-main.js"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
