@@ -1,9 +1,10 @@
-{
+ {
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
     "check-lint": "./node_modules/.bin/eslint [0-9]*.js",
     "test": "jest",
-    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
+    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest",
+    "dev": "node 2-main.js"  // Add this line
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -15,4 +16,3 @@
     "jest": "^24.9.0"
   }
 }
-
