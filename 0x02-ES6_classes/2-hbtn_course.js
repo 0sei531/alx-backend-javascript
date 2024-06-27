@@ -1,16 +1,14 @@
 class HolbertonCourse {
   constructor(name, length, students) {
-    this.name = name;  // Using setters for validation
-    this.length = length;  // Using setters for validation
-    this.students = students;  // Using setters for validation
+    this.name = name;
+    this.length = length;
+    this.students = students;
   }
 
-  // Getter for name
   get name() {
     return this._name;
   }
 
-  // Setter for name with validation
   set name(name) {
     if (typeof name === 'string') {
       this._name = name;
@@ -19,12 +17,10 @@ class HolbertonCourse {
     }
   }
 
-  // Getter for length
   get length() {
     return this._length;
   }
 
-  // Setter for length with validation
   set length(length) {
     if (typeof length === 'number') {
       this._length = length;
@@ -33,14 +29,15 @@ class HolbertonCourse {
     }
   }
 
-  // Getter for students
   get students() {
     return this._students;
   }
 
-  // Setter for students with validation
   set students(students) {
-    if (Array.isArray(students) && students.every(s => typeof s === 'string')) {
+    if (
+      Array.isArray(students)
+      && students.every((s) => typeof s === 'string')
+    ) {
       this._students = students;
     } else {
       throw new TypeError('Students must be an array of strings');
@@ -49,4 +46,3 @@ class HolbertonCourse {
 }
 
 export default HolbertonCourse;
-
