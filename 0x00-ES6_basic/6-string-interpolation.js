@@ -12,4 +12,3 @@ export default function getSanFranciscoDescription() {
     `proper had a GDP of ${budget.gdp}, and a GDP per capita of ${budget.capita}.`
   );
 }
-
