@@ -5,4 +5,3 @@ function initializeRooms() {
 }
 
 export default initializeRooms;
-
