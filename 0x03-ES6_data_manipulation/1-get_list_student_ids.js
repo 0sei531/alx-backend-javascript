@@ -3,7 +3,7 @@ function getListStudentIds(students) {
     return [];
   }
 
-  const ids = students.map(item => item.id);
+  const ids = students.map((item) => item.id);
 
   return ids;
 }
