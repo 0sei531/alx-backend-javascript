@@ -1,7 +1,6 @@
-export default function setFromArray(array) {
-  const set1 = new Set();
-  for (const item of array) {
-    set1.add(item);
-  }
-  return (set1);
+function setFromArray(array) {
+  const set = new Set(array);
+  return set;
 }
+
+export default setFromArray;
