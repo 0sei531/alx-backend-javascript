@@ -1,28 +1,23 @@
-const Utils = {
-  isNegZero(n) {
-    const num = Number(n);
-    return num === 0 && 1 / num === -Infinity;
-  },
-  calculateNumber(type, a, b) {
-    const numA = Number(a);
-    const numB = Number(b);
+const mocha = require('mocha');
+const { expect, assert } = require('chai');
+const sinon = require('sinon');
 
-    if (Number.isNaN(numA) || Number.isNaN(numB))
-      throw new TypeError('Parameters must be numbers or able to coerce to number');
+const utils = require('./utils');
+const sendPaymentRequestToApi = require('./3-payment');
+const { spy } = require('sinon');
 
-    switch (type) {
-      case 'SUM':
-        return Math.round(numA) + Math.round(numB);
-      case 'SUBTRACT':
-        return Math.round(numA) - Math.round(numB);
-      case 'DIVIDE':
-        if (Math.round(numB) === 0) return 'ERROR';
-        const quotient = Math.round(numA) / Math.round(numB);
-        return this.isNegZero(quotient) ? 0 : quotient;
-      default:
-        throw new Error('Invalid operation type. Valid types are "SUM", "SUBTRACT", and "DIVIDE".');
-    }
-  }
-};
+describe('sendPaymentRequestToApi', () => {
+  it('should call calculateNumber', () => {
+    const calcNumSpy = sinon.spy(utils, 'calculateNumber');
+    const consoleSpy = sinon.spy(console, 'log');
 
-module.exports = Utils;
+    const apiRequestRes = sendPaymentRequestToApi(100, 20);
+
+    expect(calcNumSpy.calledOnceWithExactly('SUM', 100, 20)).to.equal(true);
+    expect(consoleSpy.calledWithExactly('The total is: 120')).to.equal(true);
+    expect(utils.calculateNumber('SUM', 100, 20)).to.equal(apiRequestRes);
+
+    calcNumSpy.restore();
+    consoleSpy.restore();
+  });
+});
